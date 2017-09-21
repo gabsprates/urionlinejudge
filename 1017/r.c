@@ -1,19 +1,23 @@
 #include <stdio.h>
-#define MHORA 60
+#define KMLITRO 12
 
-double tempoDeslocamentoHorario(int s0, int s, int v) {
-    return (s - s0) / (double) v;
+int distanciaPercorrida(int velocidade, int tempo) {
+    return velocidade * tempo;
+}
+
+float litros(int distancia, int kmLitro) {
+    return (float) distancia / kmLitro;
 }
 
 int main() {
-    double minutos;
-    int distancia, vX = 60, vY = 90;
+    int velocidade, tempo, distancia;
 
-    scanf("%d", &distancia);
+    scanf("%d", &tempo);
+    scanf("%d", &velocidade);
 
-    minutos = tempoDeslocamentoHorario(0, distancia, (vY - vX));
+    distancia = distanciaPercorrida(velocidade, tempo);
 
-    printf("%d minutos", (int) (minutos * MHORA));
+    printf("%.3f", litros(distancia, KMLITRO));
 
     printf("\n");
     return 0;
